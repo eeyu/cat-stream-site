@@ -55,7 +55,7 @@ function updateKeyCounts(keyLog) {
     
 // }) 
 
-addVideoStream(visitorVideo, stream);
+addVideoStream(visitorVideo, liveStream);
  
 /* 
     DATABASE
