@@ -1,5 +1,5 @@
 {
-  "name": "simple-website",
+  "name": "cat-stream-website",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -16,13 +16,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eeyu/eeyu.github.io.git"
+    "url": ""
   },
   "keywords": [],
   "author": "eyu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/eeyu/eeyu.github.io/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/eeyu/eeyu.github.io#readme"
+  "homepage": ""
 }
