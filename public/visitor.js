@@ -1,12 +1,11 @@
 'use strict'
+const visitorVideo = document.createElement('video');
 
 const listText = document.getElementById("textedit");
 const FBPostFeedback = document.getElementById("FB-post-feedback");
 const FBread = document.getElementById("FB-read");
 
 const keystrokeLogger = new KeystrokeLogger();
-
-var retrievedName = '';
 
 /* 
     KEYCOUNTS
@@ -49,28 +48,14 @@ function updateKeyCounts(keyLog) {
 /* 
     LIVESTREAM
 */
-var tag = document.createElement('script');
-tag.id = 'iframe-demo';
-tag.src = 'https://www.youtube.com/iframe_api';
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-var player;
 
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('existing-iframe-example', {
-      events: {
-        'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange
-      }
-  });
-}
-function onPlayerReady(event) {
-  player.playVideo();
-}
+const socket = io('/');
+socket.emit('join-room', visitorId);
+socket.on('user-connected', userId => {
+    
+}) 
 
-function onPlayerStateChange(event) {
-//   changeBorderColor(event.data);
-}
+addVideoStream(visitorVideo, stream);
  
 /* 
     DATABASE

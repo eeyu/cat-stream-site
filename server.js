@@ -11,11 +11,11 @@ app.use(express.static('public'));
 var roomId = 1;
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('visitor');
 })
 
 app.get('/host-video', (req, res) => {
-    res.render('video-host');
+    res.render('host');
 })
 
 io.on('connection', socket => {
