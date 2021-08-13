@@ -12,6 +12,7 @@
     "nodemon": "^2.0.12"
   },
   "scripts": {
+    "start": "node server.js",
     "devStart": "nodemon server.js"
   },
   "repository": {
@@ -22,7 +23,7 @@
   "author": "eyu",
   "license": "ISC",
   "bugs": {
-    "url": ""
+    "url": "google.com"
   },
   "homepage": ""
 }
