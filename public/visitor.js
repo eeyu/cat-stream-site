@@ -49,11 +49,11 @@ function updateKeyCounts(keyLog) {
     LIVESTREAM
 */
 
-const socket = io('/');
-socket.emit('join-room', visitorId);
-socket.on('user-connected', userId => {
+// const socket = io('/');
+// socket.emit('join-room', visitorId);
+// socket.on('user-connected', userId => {
     
-}) 
+// }) 
 
 addVideoStream(visitorVideo, stream);
  
