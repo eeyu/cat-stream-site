@@ -2,6 +2,8 @@ const videoGrid = document.getElementById('video-grid');
 const myVideo = document.createElement('video');
 myVideo.muted = true;
 
+const hostVideoId = 1;
+
 navigator.mediaDevices.getUserMedia({
     video: true,
     audio: true
