@@ -1,5 +1,17 @@
 'use strict'
+const myPeer = new Peer(undefined, {
+    host: '/',
+    port: '3001'
+})
+
+var peerId = 0;
+
 const visitorVideo = document.createElement('video');
+visitorVideo.muted = true;
+
+function unmute() {
+    visitorVideo.muted = !visitorVideo.muted;
+}
 
 const listText = document.getElementById("textedit");
 const FBPostFeedback = document.getElementById("FB-post-feedback");
@@ -46,16 +58,43 @@ function updateKeyCounts(keyLog) {
 }
 
 /* 
-    LIVESTREAM
+    SOCKETS
 */
+const socket = io('/');
 
-// const socket = io('/');
-// socket.emit('join-room', visitorId);
-// socket.on('user-connected', userId => {
-    
-// }) 
+myPeer.on('open', id => {
+    socket.emit('user-joined', id);
+    peerId = id;
+})
 
-addVideoStream(visitorVideo, liveStream);
+socket.on('user-connected', userId => {
+    if (userId == hostId) {
+        console.log("Host has connected");
+    }
+})
+
+socket.on('host-is-ready', () => {
+    socket.emit('user-joined', peerId);
+    connectToHost();
+})
+
+socket.on('user-disconnected', (userId) => {
+    if (userId == hostId) {
+        console.log("Host has disconnected");
+    }
+})
+
+function connectToHost() {
+    myPeer.on('call', call => {
+        console.log("call has been detected");
+        call.answer();
+        call.on('stream', hostVideoStream => {
+            console.log("Host video detected");
+            addVideoStream(visitorVideo, hostVideoStream);
+        });
+    });
+}
+
  
 /* 
     DATABASE

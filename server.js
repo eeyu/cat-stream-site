@@ -3,12 +3,11 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server)
 
-const serverId = 0;
+const roomId = 1;
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-var roomId = 1;
 
 app.get('/', (req, res) => {
     res.render('visitor');
@@ -19,11 +18,21 @@ app.get('/host-video', (req, res) => {
 })
 
 io.on('connection', socket => {
-    socket.on('join-room', (userId) => {
+    socket.on('user-joined', (userId) => {
         socket.join(roomId);
-        socket.broadcast.emit("joined: " + userId);
+        socket.to(roomId).emit('user-connected', userId);
+
+        socket.on('disconnect', () => {
+            socket.to(roomId).emit('user-disconnected', userId);
+        })
+
+        socket.on('host-is-ready', () => {
+            socket.to(roomId).emit('host-is-ready');
+        })
     })
 })
+
+
 
 server.listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);

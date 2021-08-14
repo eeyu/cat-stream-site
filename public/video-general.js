@@ -1,8 +1,7 @@
-const visitorId = 0;
+const visitorId = 2;
 const hostId = 1;
 
 const videoGrid = document.getElementById('video-grid');
-var liveStream;
 
 function addVideoStream(video, stream) {
     video.srcObject = stream;

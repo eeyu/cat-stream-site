@@ -1,5 +1,12 @@
 const hostVideo = document.createElement('video');
 hostVideo.muted = true;
+const myPeer = new Peer(hostId, {
+    host: '/',
+    port: '3001'
+})
+
+const socket = io('/');
+socket.emit('user-joined', hostId);
 
 navigator.mediaDevices.getUserMedia({
     video: true,
@@ -8,8 +15,18 @@ navigator.mediaDevices.getUserMedia({
     liveStream = stream;
     addVideoStream(hostVideo, stream);
     socket.on('user-connected', userId => {
-        connectToNewUser(userId, stream);
+        if (userId != hostId) {
+            connectToNewVisitor(userId, stream);
+        }
     })
+    socket.emit('host-is-ready');
+
 })
+
+function connectToNewVisitor(userId, stream) {
+    const call = myPeer.call(userId, stream);
+    console.log("call has been attempted to: " + userId);
+}
+
 
 
