@@ -1,8 +1,8 @@
 'use strict'
 const myPeer = new Peer(undefined, {
-    host: "peerjs-for-cat.herokuapp.com",
-    port: "",
-    path: "/peerjs",
+    host: "/",
+    port: "9000",
+    path: "/myapp",
     // host: '/',
     // port: '3001'
 })
