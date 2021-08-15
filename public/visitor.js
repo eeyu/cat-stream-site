@@ -9,6 +9,8 @@ var peerId = 0;
 const visitorVideo = document.createElement('video');
 visitorVideo.muted = true;
 
+console.log("logging");
+
 function unmute() {
     visitorVideo.muted = !visitorVideo.muted;
 }
