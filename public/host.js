@@ -1,11 +1,9 @@
 const hostVideo = document.createElement('video');
 hostVideo.muted = true;
 const myPeer = new Peer(hostId, {
-    host: "peerjs-for-cat.herokuapp.com",
-    port: "9000",
-    path: "/myapp",
-    // host: '/',
-    // port: '3001'
+    host: '/',
+    port: "3001",
+    path: "peerjs"
 })
 
 const socket = io('/');
@@ -17,13 +15,12 @@ navigator.mediaDevices.getUserMedia({
 }).then(stream => {
     liveStream = stream;
     addVideoStream(hostVideo, stream);
+    socket.emit('host-is-ready');
     socket.on('user-connected', userId => {
         if (userId != hostId) {
             connectToNewVisitor(userId, stream);
         }
     })
-    socket.emit('host-is-ready');
-
 })
 
 function connectToNewVisitor(userId, stream) {

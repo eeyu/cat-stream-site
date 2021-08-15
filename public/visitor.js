@@ -1,10 +1,8 @@
 'use strict'
 const myPeer = new Peer(undefined, {
-    host: "peerjs-for-cat.herokuapp.com",
-    port: "9000",
-    path: "/myapp",
-    // host: '/',
-    // port: '3001'
+    host: '/',
+    port: "3001",
+    path: "peerjs"
 })
 
 var peerId = 0;
@@ -81,9 +79,11 @@ socket.on('user-connected', userId => {
 })
 
 socket.on('host-is-ready', () => {
+    console.log("host is ready");
     socket.emit('user-joined', peerId);
-    connectToHost();
 })
+
+connectToHost();
 
 socket.on('user-disconnected', (userId) => {
     if (userId == hostId) {

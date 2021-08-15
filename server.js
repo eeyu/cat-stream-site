@@ -33,17 +33,7 @@ io.on('connection', socket => {
 })
 
 const { PeerServer } = require('peer');
-
-const peerServer = PeerServer({ port: 9000, path: '/myapp' });
-
-// var ExpressPeerServer = require("peer").ExpressPeerServer;    
-// var options = {
-//   debug: true,
-//   allow_discovery: true,
-// };
-// let peerServer = ExpressPeerServer(server, options);
-// app.use("/peerjs", peerServer);
-
+const peerServer = PeerServer({ port: 3001, path: '/peerjs' });
 
 server.listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
