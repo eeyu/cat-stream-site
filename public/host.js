@@ -1,7 +1,7 @@
 const hostVideo = document.createElement('video');
 hostVideo.muted = true;
 const myPeer = new Peer(hostId, {
-    host: "/",
+    host: "peerjs-for-cat.herokuapp.com",
     port: "9000",
     path: "/myapp",
     // host: '/',
