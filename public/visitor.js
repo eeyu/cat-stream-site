@@ -9,7 +9,6 @@ var peerId = 0;
 const visitorVideo = document.createElement('video');
 visitorVideo.muted = true;
 
-console.log("logging");
 
 function unmute() {
     visitorVideo.muted = !visitorVideo.muted;
@@ -66,10 +65,13 @@ const socket = io('/');
 
 myPeer.on('open', id => {
     socket.emit('user-joined', id);
+    console.log("socket opened");
+
     peerId = id;
 })
 
 socket.on('user-connected', userId => {
+     console.log("heard socket say user-connected");
     if (userId == hostId) {
         console.log("Host has connected");
     }
