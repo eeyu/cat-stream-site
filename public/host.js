@@ -3,7 +3,7 @@ hostVideo.muted = true;
 const myPeer = new Peer(hostId, {
     secure: true,
     host: 'cat-stream.herokuapp.com',
-    port: 443,
+    port: 3001,
     key: 'peerjs'
 })
 
