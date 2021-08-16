@@ -6,7 +6,7 @@ const myPeer = new Peer(hostId, {
     path: '/peerjs'
 })
 
-const socket = io('/', {transports: ['websocket']});
+const socket = io('https://cat-stream.herokuapp.com/', {transports: ['websocket']});
 socket.emit('user-joined', hostId);
 
 navigator.mediaDevices.getUserMedia({
