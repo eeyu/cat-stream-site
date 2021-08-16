@@ -1,6 +1,6 @@
 'use strict'
 const myPeer = new Peer(undefined, {
-    host: '/',
+    host: 'localhost',
     port: 3001,
     path: "/peerjs"
 })

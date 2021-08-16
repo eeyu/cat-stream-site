@@ -3,7 +3,7 @@ hostVideo.muted = true;
 const myPeer = new Peer(hostId, {
     host: 'localhost',
     port: 3001,
-    path: "peerjs"
+    path: "/peerjs"
 })
 
 const socket = io('/', {transports: ['websocket']});
