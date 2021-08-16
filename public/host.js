@@ -1,12 +1,12 @@
 const hostVideo = document.createElement('video');
 hostVideo.muted = true;
 const myPeer = new Peer(hostId, {
-    host: '/',
-    port: "3001",
+    host: 'localhost',
+    port: 3001,
     path: "peerjs"
 })
 
-const socket = io('/');
+const socket = io('/', {transports: ['websocket']});
 socket.emit('user-joined', hostId);
 
 navigator.mediaDevices.getUserMedia({

@@ -1,8 +1,8 @@
 'use strict'
 const myPeer = new Peer(undefined, {
     host: '/',
-    port: "3001",
-    path: "peerjs"
+    port: 3001,
+    path: "/peerjs"
 })
 
 var peerId = 0;
@@ -91,6 +91,7 @@ socket.on('user-disconnected', (userId) => {
     }
 })
 
+// this doesn't distinguish between hosts...should call something else?
 function connectToHost() {
     myPeer.on('call', call => {
         console.log("call has been detected");
