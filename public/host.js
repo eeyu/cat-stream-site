@@ -4,7 +4,7 @@ const myPeer = new Peer(hostId, {
     secure: true,
     host: 'cat-stream.herokuapp.com',
     port: 443,
-    path: '/peerjs'
+    key: 'peerjs'
 })
 
 const socket = io();
