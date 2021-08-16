@@ -1,9 +1,9 @@
 const hostVideo = document.createElement('video');
 hostVideo.muted = true;
 const myPeer = new Peer(hostId, {
-    host: 'localhost',
+    host: 'https://cat-stream.herokuapp.com/',
     port: 3001,
-    path: "/peerjs"
+    path: '/peerjs'
 })
 
 const socket = io('/', {transports: ['websocket']});
