@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 // const server = require('http').Server(app);
 const server = app.listen(process.env.PORT || 3000)
-app.use('/peerjs', require('peer').ExpressPeerServer(server, {
-	debug: true
-}))
+// app.use('/peerjs', require('peer').ExpressPeerServer(server, {
+// 	debug: true
+// }))
 const io = require('socket.io')(server)
 
 const roomId = 1;

@@ -1,4 +1,3 @@
-const visitorId = 2;
 const hostId = 1;
 
 const videoGrid = document.getElementById('video-grid');
