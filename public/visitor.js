@@ -2,7 +2,7 @@
 const myPeer = new Peer(undefined, {
     secure: true,
     host: 'cat-stream.herokuapp.com',
-    port: 3002,
+    port: '',
     path: '/peerjs'
 })
 
