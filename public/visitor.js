@@ -1,7 +1,7 @@
 'use strict'
 const myPeer = new Peer(undefined, {
     secure: true,
-    host: 'cat-stream.herokuapp.com',
+    host: 'peerjs-for-cat.herokuapp.com',
     port: 443,
     key: 'peerjs'
 })
