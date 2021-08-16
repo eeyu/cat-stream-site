@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const server = require('http').Server(app);
-// const server = app.listen(process.env.PORT || 3000)
-// app.use('/peerjs', require('peer').ExpressPeerServer(server, {
-// 	debug: true
-// }))
+// const server = require('http').Server(app);
+const server = app.listen(process.env.PORT || 3000)
+app.use('/peerjs', require('peer').ExpressPeerServer(server, {
+	debug: true
+}))
 const io = require('socket.io')(server)
 
 const roomId = 1;
@@ -36,9 +36,9 @@ io.on('connection', socket => {
     })
 })
 
-const { PeerServer } = require('peer');
-const peerServer = PeerServer({ port: 3001, path: '/peerjs' });
+// const { PeerServer } = require('peer');
+// const peerServer = PeerServer({ port: 3001, path: '/peerjs' });
 
-server.listen(process.env.PORT || 3000, function(){
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-  });
+// server.listen(process.env.PORT || 3000, function(){
+//     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+//   });
