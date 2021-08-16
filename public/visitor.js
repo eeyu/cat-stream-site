@@ -62,7 +62,7 @@ function updateKeyCounts(keyLog) {
 /* 
     SOCKETS
 */
-const socket = io('/https://cat-stream.herokuapp.com/');
+const socket = io();
 
 myPeer.on('open', id => {
     socket.emit('user-joined', id);
