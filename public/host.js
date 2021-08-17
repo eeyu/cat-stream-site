@@ -10,6 +10,13 @@ const myPeer = new Peer(hostId, {
 const socket = io();
 socket.emit('user-joined', hostId);
 
+const refreshInterval = 10 * 1000;
+var refresher = setTimeout(refresh, refreshInterval);
+
+function refresh() {
+    location.reload();
+}
+
 navigator.mediaDevices.getUserMedia({
     video: true,
     audio: true
@@ -20,6 +27,8 @@ navigator.mediaDevices.getUserMedia({
     socket.on('user-connected', userId => {
         if (userId != hostId) {
             connectToNewVisitor(userId, stream);
+            clearTimeout(refresher);
+            refresher = setTimeout(refresh, refreshInterval);
         }
     })
 })
@@ -28,6 +37,9 @@ function connectToNewVisitor(userId, stream) {
     const call = myPeer.call(userId, stream);
     console.log("call has been attempted to: " + userId);
 }
+
+
+
 
 
 
