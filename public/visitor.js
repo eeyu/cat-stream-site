@@ -21,6 +21,7 @@ const FBPostFeedback = document.getElementById("FB-post-feedback");
 const FBread = document.getElementById("FB-read");
 
 const keystrokeLogger = new KeystrokeLogger();
+var numberKeySelect = 0;
 
 /* 
     KEYCOUNTS
@@ -32,8 +33,9 @@ document.addEventListener('keydown', (event) => {
         event.preventDefault();
     }
 
-    if(["1","2","3","4"].indexOf(event.code) > -1) {
-        sendSoundSelectToDatabase(name)
+    if(["1","2","3","4", "5", "6", "7", "8", "9", "0"].indexOf(event.code) > -1) {
+        numberKeySelect = parseInt(name);
+        console.log(numberKeySelect);
     }
     
     switch (name) {
@@ -127,14 +129,22 @@ function sendKeysToDatabase(keyLog) {
     });
 }
 
-function sendSoundSelectToDatabase(number) {
-    firebase.database().ref('sound/').set({
+function recordNumberAndReset() {
+    sendNumberSelectToDatabase(numberKeySelectmber);
+    numberKeySelect = 0;
+}
+
+function sendNumberSelectToDatabase(number) {
+    firebase.database().ref('number/').set({
         selection: number
     });
 }
 
 var keyLoggerRefreshRate = 500; // in ms
 setInterval(recordKeysAndReset, keyLoggerRefreshRate);
+
+var buttonRefreshRate = 100; // in ms
+setInterval(recordNumberAndReset, buttonRefreshRate);
 
 
 
