@@ -28,6 +28,7 @@ var numberKeySelect = 0;
 */
 document.addEventListener('keydown', (event) => {
     var name = event.key;
+    console.log(event.code)
 
     if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(event.code) > -1) {
         event.preventDefault();
