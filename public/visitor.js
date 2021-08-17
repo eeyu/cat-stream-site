@@ -139,10 +139,10 @@ function sendNumberSelectToDatabase(number) {
     });
 }
 
-var keyLoggerRefreshRate = 500; // in ms
+var keyLoggerRefreshRate = 100; // in ms
 setInterval(recordKeysAndReset, keyLoggerRefreshRate);
 
-var buttonRefreshRate = 500; // in ms
+var buttonRefreshRate = 100; // in ms
 setInterval(recordNumberAndReset, buttonRefreshRate);
 
 
