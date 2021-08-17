@@ -10,7 +10,7 @@ const myPeer = new Peer(hostId, {
 const socket = io();
 socket.emit('user-joined', hostId);
 
-const refreshInterval = 10 * 1000;
+const refreshInterval = 10 * 60 * 1000;
 var refresher = setTimeout(refresh, refreshInterval);
 
 function refresh() {
