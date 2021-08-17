@@ -31,6 +31,10 @@ document.addEventListener('keydown', (event) => {
     if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(event.code) > -1) {
         event.preventDefault();
     }
+
+    if(["1","2","3","4"].indexOf(event.code) > -1) {
+        sendSoundSelectToDatabase(name)
+    }
     
     switch (name) {
         case "ArrowUp":
@@ -120,6 +124,12 @@ function sendKeysToDatabase(keyLog) {
         down: keyLog.downKey,
         left: keyLog.leftKey,
         right: keyLog.rightKey
+    });
+}
+
+function sendSoundSelectToDatabase(number) {
+    firebase.database().ref('sound/').set({
+        selection: number
     });
 }
 
