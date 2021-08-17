@@ -10,13 +10,15 @@
 <body class="light-theme">
     <!-- Header -->
     <h1>Welcome to the cat stream</h1>
-    <p id="msg">Stuff</p>
+    <p id="msg">Interaction</p>
+    <ul>
+        <li class="list">Press 1,2, 3, or 4 to play a sound </li>
+        <li class="list">Unmute the video to hear feedback from the sound </li>
+        <li class="list">Use the arrow keys to control the toy </li>
+    </ul>
+    <p id="msg">Logger</p>
     <ul>
         <li id = "textedit" class="list">Typed keys appear here: </li>
-    </ul>
-
-    <p> Key Counts (updated every 1 seconds) </p>
-    <ul>
         <li id = "upkeys">  </li>
         <li id = "downkeys"> </li>
         <li id = "rightkeys"> </li>
@@ -28,11 +30,11 @@
     <button onclick="unmute()"> toggle sound </button>
 
     <!-- Message Board -->
-    <form id="posttofirebase">
+    <!-- <form id="posttofirebase">
         <input type="text" id="name-field">
     </form>
     <button onclick="firebasepost()"> Send To FB </button>
-    <p id="FB-post-feedback"> </p>
+    <p id="FB-post-feedback"> </p> -->
 
     <!-- Initialize Firebase database -->
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
