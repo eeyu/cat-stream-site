@@ -35,7 +35,7 @@ document.addEventListener('keydown', (event) => {
 
     if(["1","2","3","4", "5", "6", "7", "8", "9", "0"].indexOf(event.code) > -1) {
         numberKeySelect = parseInt(name);
-        console.log(numberKeySelect);
+        console.log(numberKeySelect - 1);
     }
     
     switch (name) {
@@ -130,7 +130,7 @@ function sendKeysToDatabase(keyLog) {
 }
 
 function recordNumberAndReset() {
-    sendNumberSelectToDatabase(numberKeySelectmber);
+    sendNumberSelectToDatabase(numberKeySelect);
     numberKeySelect = 0;
 }
 
