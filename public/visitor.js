@@ -28,7 +28,6 @@ var numberKeySelect = 0;
 */
 document.addEventListener('keydown', (event) => {
     var name = event.key;
-    console.log(event.code)
 
     if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(event.code) > -1) {
         event.preventDefault();
@@ -36,7 +35,6 @@ document.addEventListener('keydown', (event) => {
 
     if(["Digit1","Digit2","Digit3","Digit4", "Digit5", "Digit6", "Digit7", "Digit8", "Digit9", "Digit0"].indexOf(event.code) > -1) {
         numberKeySelect = parseInt(name);
-        console.log(numberKeySelect - 1);
     }
     
     switch (name) {
