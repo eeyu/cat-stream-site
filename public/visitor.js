@@ -128,6 +128,33 @@ function sendKeysToDatabase(keyLog) {
     });
 }
 
+function incrementUpInDatabase() {
+    var current = firebase.database().ref('keystrokes/').get({
+        up
+    });
+    firebase.database().ref('keystrokes/').set({
+        up: keyLog.upKey
+    });
+}
+
+function incrementDownInDatabase() {
+    firebase.database().ref('keystrokes/').set({
+        down: keyLog.downKey
+    });
+}
+
+function incrementLeftInDatabase() {
+    firebase.database().ref('keystrokes/').set({
+        left: keyLog.leftKey
+    });
+}
+
+function incrementRightInDatabase() {
+    firebase.database().ref('keystrokes/').set({
+        right: keyLog.rightKey
+    });
+}
+
 function recordNumberAndReset() {
     sendNumberSelectToDatabase(numberKeySelect);
     numberKeySelect = 0;
@@ -138,6 +165,8 @@ function sendNumberSelectToDatabase(number) {
         selection: number
     });
 }
+
+var buttonPressDelay = 100; // in ms
 
 var keyLoggerRefreshRate = 100; // in ms
 setInterval(recordKeysAndReset, keyLoggerRefreshRate);
